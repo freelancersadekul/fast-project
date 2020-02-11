@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		.process{
+			position: relative;
+			margin-top: 100px;
+			counter-reset: step;
+		}
+		.process li{
+			list-style-type: none;
+			float: left;
+			width: 20%;
+			text-align: center;
+			position: relative;
+		}
+		.process li::before{
+			content: counter(step);
+			counter-increment: step;
+			width: 50px;
+			height: 50px;
+			border: 1px solid #333;
+			display: block;
+			text-align: center;
+			line-height: 50px;
+			border-radius: 50%;
+			margin: 0px auto 15px auto;
+			background-color: white;
+		}
+		.process li::after{
+			content: "";
+			width:100%;
+			height:2px;
+			background-color:#ddd;
+			position: absolute;
+			top: 25px;
+			left: -50%;
+			z-index: -1;
+
+		}
+		.process li:first-child::after{
+			content: none;
+
+		}
+		.process li.active::before{
+			background-color: #a66671;
+			color: #ffffff;
+			border-color: white;
+		}
+		.process li.active+li::after{
+			background-color: blue;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="process">
+	<li>Step 1</li>
+	<li class="active">Step 2</li>
+	<li>Step 3</li>
+	<li>Step 4</li>
+	<li>Step 5</li>
+	</ul>
+	</div>
+
+</body>
+</html>
